@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{df0e678d-340c-419c-b0d5-1c81de8026a1}</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>main.pyw</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <InterpreterId>80659ab7-4d53-4e0c-8588-a766116cbd46</InterpreterId>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterVersion>2.7</InterpreterVersion>
+    <OutputPath>.</OutputPath>
+    <Name>Application</Name>
+    <RootNamespace>WpfApplication1</RootNamespace>
+    <CommandLineArguments />
+    <InterpreterPath />
+    <InterpreterArguments />
+    <DebugStdLib>False</DebugStdLib>
+    <PublishUrl />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="controller.py" />
+    <Compile Include="main.pyw" />
+    <Compile Include="model.py" />
+    <Compile Include="view.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.ini" />
+    <Content Include="Interfaces\Icons\cancel.png" />
+    <Content Include="Interfaces\Icons\save.png" />
+    <Content Include="Interfaces\window_add.xaml" />
+    <Content Include="Scripts\purge-files-client.bat" />
+    <Content Include="Scripts\purge-files.bat" />
+    <Content Include="SQL\purge-collect.sql" />
+    <Content Include="SQL\purge-document.sql" />
+    <Content Include="SQL\purge-flow.sql" />
+    <Content Include="SQL\purge-publish.sql" />
+    <Content Include="Interfaces\Icons\edit-delete.png" />
+    <Content Include="Interfaces\Icons\apply.png" />
+    <Content Include="Interfaces\Icons\list-add.png" />
+    <Content Include="Interfaces\Icons\list-remove.png" />
+    <Content Include="Interfaces\Icons\quit.png" />
+    <Content Include="Interfaces\Icons\reset.png" />
+    <Content Include="Interfaces\main.xaml" />
+    <Content Include="Interfaces\main.old.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Backups\" />
+    <Folder Include="Interfaces\Icons\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="SQL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <Name>Accessibility</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Name>PresentationCore</Name>
+      <AssemblyName>
+      </AssemblyName>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Name>PresentationFramework</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="PresentationUI">
+      <Name>PresentationUI</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="ReachFramework">
+      <Name>ReachFramework</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Name>System.Deployment</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="System.Printing">
+      <Name>System.Printing</Name>
+      <AssemblyName>
+      </AssemblyName>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <Name>UIAutomationProvider</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Name>UIAutomationTypes</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Name>WindowsBase</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

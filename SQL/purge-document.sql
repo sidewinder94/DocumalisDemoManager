@@ -1,0 +1,17 @@
+-- Cleaning documents
+delete from doc_documents;
+delete from doc_custom;
+delete from doc_comment;
+delete from doc_recognize;
+delete from doc_trace;
+delete from doc_variable;
+delete from doc_varsys;
+delete from bskeng_action;
+delete from bskeng_collect;
+delete from bskeng_index;
+delete from bskeng_input;
+delete from bskeng_mail;
+delete from bskeng_output;
+delete from bskeng_publish;
+delete from bskeng_signbook;
+delete from bskeng_system;

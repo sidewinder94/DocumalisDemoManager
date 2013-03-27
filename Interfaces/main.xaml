@@ -1,0 +1,133 @@
+﻿<Window 
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+       Title="Documalis Demo Manager" Height="338"  Width="501.157" ResizeMode="NoResize" Closing="onMainClose" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="Style_ButtonImage" TargetType="Image">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="Width" Value="22"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.4"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="127*" />
+            <RowDefinition Height="28*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="407*" />
+            <ColumnDefinition Width="161*" />
+        </Grid.ColumnDefinitions>
+        <ListView Name="listview" SelectionMode="Single" SelectionChanged="listview_SelectionChanged">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn DisplayMemberBinding="{Binding SaveIndex}" Width="0">
+                        <GridViewColumnHeader Visibility="Hidden" Content="Index"/>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding SaveName}" >
+                        <GridViewColumnHeader Content="Nom" HorizontalContentAlignment="Left" TextOptions.TextFormattingMode="Display"/>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding SaveDate}" >
+                        <GridViewColumnHeader Content="Date" HorizontalContentAlignment="Left" TextOptions.TextFormattingMode="Display"/> 
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Separator Margin="0,0,0,50" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="1" Grid.Row="1" />
+        <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,12,0,0" Padding="5" Click="onButtonPurgeClick" Height="36" Width="151">
+            <StackPanel Orientation="Horizontal">
+                <Image Style="{StaticResource Style_ButtonImage}">
+                    <Image.Source>
+                        <BitmapImage UriSource="./Interfaces/Icons/edit-delete.png"/>
+                    </Image.Source>
+                </Image>
+                <TextBlock VerticalAlignment="Center" Text="Purger les documents" TextOptions.TextFormattingMode="Display"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Margin="0,12,10,0" Padding="5" Grid.ColumnSpan="1" Click="onButtonQuitClick" Height="36" Width="73">
+            <StackPanel Orientation="Horizontal">
+                <Image Style="{StaticResource Style_ButtonImage}" >
+                    <Image.Source>
+                        <BitmapImage UriSource="./Interfaces/Icons/quit.png"/>
+                    </Image.Source>
+                </Image>
+                <TextBlock VerticalAlignment="Center" Text="Quitter" TextOptions.TextFormattingMode="Display"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" Margin="192,12,53,0" Padding="5" Grid.ColumnSpan="1" Click="onButtonResetClick" Height="36" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Style="{StaticResource Style_ButtonImage}">
+                    <Image.Source>
+                        <BitmapImage UriSource="./Interfaces/Icons/reset.png"/>
+                    </Image.Source>
+                </Image>
+                <TextBlock VerticalAlignment="Center" Text="Remise à Zero" TextOptions.TextFormattingMode="Display"/>
+            </StackPanel>
+        </Button>
+        <DockPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel DockPanel.Dock="Top" VerticalAlignment="Top">
+                <Button Click="onButtonAddListClick" Margin="10,10,10,0" Padding="5">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource Style_ButtonImage}">
+                            <Image.Source>
+                                <BitmapImage UriSource="./Interfaces/Icons/list-add.png" />
+                            </Image.Source>
+                        </Image>
+                        <TextBlock VerticalAlignment="Center" Text="Sauvegarder" TextOptions.TextFormattingMode="Display" />
+                    </StackPanel>
+                </Button>
+                <Button Name="buttonEdit" Margin="10,10,10,0" Padding="5" IsEnabled="False" Click="onButtonEditClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource Style_ButtonImage}">
+                            <Image.Source>
+                                <BitmapImage UriSource="./Interfaces/Icons/save.png" />
+                            </Image.Source>
+                        </Image>
+                        <TextBlock VerticalAlignment="Center" Text="Écraser" TextOptions.TextFormattingMode="Display" />
+                    </StackPanel>
+                </Button>
+                <Button Name="buttonDelete" Click="onButtonListRemoveClick" Margin="10,10,10,0" Padding="5" IsEnabled="False">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource Style_ButtonImage}">
+                            <Image.Source>
+                                <BitmapImage UriSource="./Interfaces/Icons/list-remove.png" />
+                            </Image.Source>
+                        </Image>
+                        <TextBlock VerticalAlignment="Center" Text="Supprimer" TextOptions.TextFormattingMode="Display" />
+                    </StackPanel>
+                </Button>
+                <Button Name="buttonOpen" Click="onButtonOpenClick" Margin="10,10,10,0" Padding="5">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource Style_ButtonImage}">
+                            <Image.Source>
+                                <BitmapImage UriSource="./Interfaces/Icons/open.png" />
+                            </Image.Source>
+                        </Image>
+                        <TextBlock VerticalAlignment="Center" Text="Ouvrir le dossier" TextOptions.TextFormattingMode="Display" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+                <Button Name="buttonApply" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Grid.Column="1" Click="onButtonApplyClick" Padding="5" Margin="10,10,10,0" IsEnabled="False">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource Style_ButtonImage}">
+                            <Image.Source>
+                                <BitmapImage UriSource="./Interfaces/Icons/apply.png"/>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock VerticalAlignment="Center" Text="Restaurer" TextOptions.TextFormattingMode="Display"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window> 
